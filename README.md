@@ -14,6 +14,11 @@ Default keybinds:
 	NUMPAD3 = Enables auto-bhop.
 	NUMPAD4 = Enables "legit" auto-bhop.
 
+Building with MinGW
+--------
+
+	g++ -O3 -static src/*.cpp -o "KiHop.exe"
+
 License
 -------
 
