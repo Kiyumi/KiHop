@@ -9,7 +9,7 @@
 namespace Main {
 	extern Player player;
 	extern Longjump longjump;
-	extern Bhop bhop;
+	extern Bunnyhop bhop;
 	extern Util util;
 	extern HWND window;
 	extern DWORD pid;
@@ -17,6 +17,10 @@ namespace Main {
 	extern HANDLE process;
 	extern DWORD player_base;
 	extern DWORD mflags;
+	extern bool lj_enabled;
+	extern bool sw_lj_enabled;
+	extern bool bhop_enabled;
+	extern bool legit_bhop_enabled;
 }
 
 #endif

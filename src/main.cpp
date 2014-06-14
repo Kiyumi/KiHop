@@ -7,12 +7,16 @@ DWORD Main::player_base = 0x53BFC8;
 DWORD Main::mflags = 0x34C;
 Player Main::player;
 Longjump Main::longjump;
-Bhop Main::bhop;
+Bunnyhop Main::bhop;
 Util Main::util;
 HWND Main::window;
 DWORD Main::pid;
 DWORD Main::module_base;
 HANDLE Main::process;
+bool Main::lj_enabled;
+bool Main::sw_lj_enabled;
+bool Main::bhop_enabled;
+bool Main::legit_bhop_enabled;
 
 int main() {
 	printf("Waiting for Counter-Strike Source.\n");
@@ -30,22 +34,23 @@ int main() {
 	bhop.start();
 	while (true) {
 		if (GetAsyncKeyState(VK_NUMPAD0)) {
-			longjump.set_enabled(false);
-			longjump.set_sw_enabled(false);
-			bhop.set_enabled(false);
-			bhop.enable_legitbhop(false);
+			lj_enabled = false;
+			sw_lj_enabled = false;
+			bhop_enabled = false;
+			legit_bhop_enabled = false;
 		} else if (GetAsyncKeyState(VK_NUMPAD1)) {
-			longjump.set_enabled(true);
-			longjump.set_sw_enabled(false);
+			lj_enabled = true;
+			sw_lj_enabled = false;
 		} else if (GetAsyncKeyState(VK_NUMPAD2)) {
-			longjump.set_sw_enabled(true);
-			longjump.set_enabled(false);
+			sw_lj_enabled = true;
+			lj_enabled = false;
 		} else if (GetAsyncKeyState(VK_NUMPAD3)) {
-			bhop.set_enabled(true);
+			bhop_enabled = true;
 		} else if (GetAsyncKeyState(VK_NUMPAD4)) {
-			bhop.enable_legitbhop(true);
+			legit_bhop_enabled = true;
+		} else {
+			Sleep(1);
 		}
-		Sleep(1);
 	}
 	return 0;
 }

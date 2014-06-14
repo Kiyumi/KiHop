@@ -22,8 +22,13 @@ int flag;
 
 void read_memory() {
 	while (true) {
-		ReadProcessMemory(process, (LPVOID) (module_base + player_base), &p_base, sizeof(int), NULL);
-		ReadProcessMemory(process, (LPVOID) (p_base + mflags), &flag, sizeof(int), NULL);
+		if(lj_enabled || sw_lj_enabled || bhop_enabled) {
+			ReadProcessMemory(process, (LPVOID) (module_base + player_base), &p_base, sizeof(int), NULL);
+			ReadProcessMemory(process, (LPVOID) (p_base + mflags), &flag, sizeof(int), NULL);
+			Sleep(1);
+		} else {
+			Sleep(1);
+		}
 	}
 }
 
