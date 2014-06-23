@@ -13,6 +13,7 @@ Default keybinds:
 	NUMPAD2 = Enables sideways auto-strafe
 	NUMPAD3 = Enables auto-bhop.
 	NUMPAD4 = Enables "legit" auto-bhop.
+	NUMPAD5 = Enables manual strafe hack.
 
 Building with MinGW
 --------
