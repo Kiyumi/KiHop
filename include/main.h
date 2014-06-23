@@ -17,8 +17,11 @@ namespace Main {
 	extern HANDLE process;
 	extern DWORD player_base;
 	extern DWORD mflags;
-	extern bool lj_enabled;
-	extern bool sw_lj_enabled;
+	extern bool auto_lj_enabled;
+	extern bool auto_sw_lj_enabled;
+	extern bool strafe_hack_enabled;
+	extern POINT center;
+	extern POINT cursor_pos;
 	extern bool bhop_enabled;
 	extern bool legit_bhop_enabled;
 }

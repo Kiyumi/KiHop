@@ -3,15 +3,13 @@
 using namespace Main;
 
 bool jumped;
-int sleep_time;
-int prev_sleep_time;
 
 void bhop_tick() {
 	while (true) {
-		if(bhop_enabled) {
+		if (bhop_enabled) {
 			if ((GetAsyncKeyState(VK_SPACE) & 0x8000) && !player.in_air()) {
-				if(legit_bhop_enabled) {
-					Sleep(rand() % 11 + 0);
+				if (legit_bhop_enabled) {
+					Sleep(rand() % 10 + 0);
 				}
 				SendMessage(window, WM_KEYDOWN, VK_SPACE, 0x390000);
 				jumped = true;
@@ -21,9 +19,8 @@ void bhop_tick() {
 				 * SMAC Bypass
 				 */
 				if (jumped) {
-					Sleep(15);
+					Sleep(16);
 					SendMessage(window, WM_KEYDOWN, VK_SPACE, 0x390000);
-					Sleep(1);
 					SendMessage(window, WM_KEYUP, VK_SPACE, 0x390000);
 					jumped = false;
 				}

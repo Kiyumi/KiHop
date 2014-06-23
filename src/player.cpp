@@ -22,7 +22,7 @@ int flag;
 
 void read_memory() {
 	while (true) {
-		if(lj_enabled || sw_lj_enabled || bhop_enabled) {
+		if (auto_lj_enabled || auto_sw_lj_enabled || bhop_enabled || strafe_hack_enabled) {
 			ReadProcessMemory(process, (LPVOID) (module_base + player_base), &p_base, sizeof(int), NULL);
 			ReadProcessMemory(process, (LPVOID) (p_base + mflags), &flag, sizeof(int), NULL);
 			Sleep(1);
